@@ -40,3 +40,51 @@ https://crates.io/crates/clap
 [dependencies]
 clap = { version = "3.1.6", features = ["derive"] }
 ```
+
+### unused指摘してくれるのはえらあじ
+
+```
+[lowbridgee@03/27 19:21:31] cargo run -- input.txt                                                        (git)-[main]
+warning: unused variable: `verbose`
+  --> src/main.rs:31:33
+   |
+31 | fn run(reader: BufReader<File>, verbose: bool) {
+   |                                 ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_verbose`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+warning: `samplecli` (bin "samplecli") generated 1 warning
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/samplecli input.txt`
+1 1 +
+1 2 + 3 4 + *
+1000 1000 *
+```
+
+### テスト前までおわり
+
+```
+[lowbridgee@03/27 20:53:55] cargo run -- -v                                                               (git)-[main]
+   Compiling samplecli v0.1.0 (/home/lowbridgee/samplecli)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.85s
+     Running `target/debug/samplecli -v`
+1 1 1 + +
+["+", "+", "1", "1"] [1]
+["+", "+", "1"] [1, 1]
+["+", "+"] [1, 1, 1]
+["+"] [1, 2]
+[] [3]
+3
+^C
+[lowbridgee@03/27 21:14:06] cargo run -- input.txt                                                        (git)-[main]
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/samplecli input.txt`
+2
+21
+1000000
+[lowbridgee@03/27 21:14:16] cat input.txt                                                                 (git)-[main]
+1 1 +
+1 2 + 3 4 + *
+1000 1000 *
+[lowbridgee@03/27 21:15:08]
+```
