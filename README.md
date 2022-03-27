@@ -120,3 +120,23 @@ test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; 
 error: test failed, to rerun pass '--bin samplecli'
 [lowbridgee@03/27 21:30:11]
 ```
+
+### エラーハンドリング編
+
+エラー処理クレート前まで
+
+```
+[lowbridgee@03/27 21:55:50] echo 42 > number.txt                                                          (git)-[main]
+[lowbridgee@03/27 23:56:46] cargo run --bin err_panic                                                     (git)-[main]
+   Compiling samplecli v0.1.0 (/home/lowbridgee/samplecli)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.92s
+     Running `target/debug/err_panic`
+84
+[lowbridgee@03/27 23:56:56] echo hoge > number.txt                                                        (git)-[main]
+[lowbridgee@03/28 00:05:18] cargo run --bin err_panic                                                     (git)-[main]
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/err_panic`
+thread 'main' panicked at 'failed to parse string to a number: ParseIntError { kind: InvalidDigit }', src/bin/err_panic.rs:9:10
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+[lowbridgee@03/28 00:05:21]
+```
