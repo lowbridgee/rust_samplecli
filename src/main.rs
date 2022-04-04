@@ -1,5 +1,6 @@
 use std::io::{BufReader, BufRead, stdin};
 use std::fs::File;
+use std::path::PathBuf;
 use anyhow::{bail, ensure, Context, Result};
 use clap::Parser;
 
@@ -15,7 +16,7 @@ struct Opts {
     verbose: bool,
 
     #[clap(name = "FILE")]
-    formula_file: Option<String>,
+    formula_file: Option<PathBuf>,
 }
 
 fn main() -> Result<()> {
