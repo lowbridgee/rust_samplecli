@@ -140,3 +140,55 @@ thread 'main' panicked at 'failed to parse string to a number: ParseIntError { k
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 [lowbridgee@03/28 00:05:21]
 ```
+
+## 完成
+
+```
+[lowbridgee@04/05 00:39:02] cargo install --path .                                                        (git)-[main]
+  Installing rpncalc v0.1.0 (/home/lowbridgee/samplecli)
+    Updating crates.io index
+  Downloaded clap_derive v3.1.7
+  Downloaded clap v3.1.8
+  Downloaded syn v1.0.90
+  Downloaded indexmap v1.8.1
+  Downloaded 4 crates (521.0 KB) in 0.75s
+   Compiling proc-macro2 v1.0.36
+   Compiling unicode-xid v0.2.2
+   Compiling version_check v0.9.4
+   Compiling syn v1.0.90
+   Compiling libc v0.2.121
+   Compiling memchr v2.4.1
+   Compiling autocfg v1.1.0
+   Compiling hashbrown v0.11.2
+   Compiling anyhow v1.0.56
+   Compiling heck v0.4.0
+   Compiling bitflags v1.3.2
+   Compiling lazy_static v1.4.0
+   Compiling strsim v0.10.0
+   Compiling termcolor v1.1.3
+   Compiling textwrap v0.15.0
+   Compiling proc-macro-error-attr v1.0.4
+   Compiling proc-macro-error v1.0.4
+   Compiling indexmap v1.8.1
+   Compiling os_str_bytes v6.0.0
+   Compiling quote v1.0.17
+   Compiling atty v0.2.14
+   Compiling thiserror-impl v1.0.30
+   Compiling clap_derive v3.1.7
+   Compiling thiserror v1.0.30
+   Compiling clap v3.1.8
+   Compiling rpncalc v0.1.0 (/home/lowbridgee/samplecli)
+    Finished release [optimized] target(s) in 15.29s
+  Installing /home/lowbridgee/.cargo/bin/err_anyhow
+  Installing /home/lowbridgee/.cargo/bin/err_panic
+  Installing /home/lowbridgee/.cargo/bin/err_thiserror
+  Installing /home/lowbridgee/.cargo/bin/rpncalc
+   Installed package `rpncalc v0.1.0 (/home/lowbridgee/samplecli)` (executables `err_anyhow`, `err_panic`, `err_thiserror`, `rpncalc`)
+[lowbridgee@04/05 00:40:19] rpncalc                                                                       (git)-[main]
+1 1 +
+2
+1 2 + 3 4 + *
+21
++ 1 1
+invalid syntax at 1
+```
